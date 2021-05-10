@@ -1,0 +1,49 @@
+Tool: ET2Spatial
+This tool converts the screen coordinates of eye-tracking data recorded on a webmap, to real-world coordinates.
+
+HOW TO USE:-
+-After unzipping, double click the exe file. The tool takes maximum 1-2 minutes to compile. The icon files should be in the same directory as the exe file
+-In the Raw files input following elements should exist: ['Time of Day [h:m:s:ms]','RecordingTime [ms]','Point of Regard Right X [px]','Point of Regard Right Y [px]','Participant','Gender','Age']
+-In the Fixations input following elements should exist: ['Event Start Trial Time [ms]','Event Duration [ms]','Fixation Position X [px]','Fixation Position Y [px]''Participant','Gender','Age']
+-For the User Interaction file, The tool currently only works with MapTrack export (http://eyetracking.upol.cz/maptrack/) 
+-On the initiation of the tool a terminal window also opens, The notifications for the export buttons are printed in this window.
+
+SYSTEM SETUP:-
+The tool is standalone and should not need additional installations. However incase of problems, these are the reccommended steps:
+1. Installation of Python v 3.5+ on the local system (https://www.python.org/downloads/release/python-387/), Make sure that you add python to PATH
+2. Installation of the packages. In the requirements.txt all the necessary modules are listed, you can install them individually or through 'pip install -r requirements.txt' in shell.
+
+
+EXPORTS:-
+The exports are named after the participant number which was given in input files. 
+The tool exports 1) shapefile: Which will produce CSV and Shapefiles for both raw points and fixation points. The shapefiles are exported in the EPSG 3857 Projection System.
+		 2) GeoJSON: Which will produce GeoJSON for both raw points and fixation points
+
+SHAPEFILE:-
+.shp, .shx, .dbf
+The shapefile has the following contents:
+--------Raw Points.shp
+	ind : index or serial number in temporal order
+	latitude: in decimal degrees
+	longitude: in decimal degrees
+	zoom level: the Google maps zoom factor at which each point was recorded
+	Format_RT: the time stamp in millisecond for each point
+--------Fixation Points.shp
+	ind : index or serial number in temporal order
+	latitude: in decimal degrees
+	longitude: in decimal degrees
+	zoom level: the Google maps zoom factor at which each point was recorded
+	Sync_time: the time stamp in millisecond for each point
+	Duration: the amount of time of a fixation on screen
+Along with the shapefile export there is a:
+	PROJECTION FILE:It contains the information on the projection of the exported points in WKT format
+	CSV FILES: all the above mentioned attributes of points in csv format.
+
+GEOJSON:-
+The geojson file contains a point geometry file with associated properties:
+--------Raw Points.geojson
+	Geometry: latitude, longitude
+	Properties: zoom level, Format_RT
+--------Fixation Points.geojson
+	Geometry: latitude, longitude
+	Properties: zoom level, Sync_time, Duration
