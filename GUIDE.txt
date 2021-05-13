@@ -2,9 +2,10 @@ Tool: ET2Spatial
 This tool converts the screen coordinates of eye-tracking data recorded on a webmap, to real-world coordinates.
 
 HOW TO USE:-
--After unzipping, double click the exe file. The tool takes maximum 1-2 minutes to compile. The icon files should be in the same directory as the exe file
--In the Raw files input following elements should exist: ['Time of Day [h:m:s:ms]','RecordingTime [ms]','Point of Regard Right X [px]','Point of Regard Right Y [px]','Participant','Gender','Age']
--In the Fixations input following elements should exist: ['Event Start Trial Time [ms]','Event Duration [ms]','Fixation Position X [px]','Fixation Position Y [px]''Participant','Gender','Age']
+-Download the tool as a zip. After unzipping, double click the exe file. The tool takes maximum 1 minute to compile. The icon files should be in the same directory as the exe file
+For Eye-tracking Data following convention should be followed: 
+-In the Raw gaze points: ['Time of Day [h:m:s:ms]','RecordingTime [ms]','Point of Regard Right X [px]','Point of Regard Right Y [px]','Participant','Gender','Age']
+-In the Fixations gaze points following elements should exist: ['Event Start Trial Time [ms]','Event Duration [ms]','Fixation Position X [px]','Fixation Position Y [px]''Participant','Gender','Age']
 -For the User Interaction file, The tool currently only works with MapTrack export (http://eyetracking.upol.cz/maptrack/) 
 -On the initiation of the tool a terminal window also opens, The notifications for the export buttons are printed in this window.
 
@@ -47,3 +48,10 @@ The geojson file contains a point geometry file with associated properties:
 --------Fixation Points.geojson
 	Geometry: latitude, longitude
 	Properties: zoom level, Sync_time, Duration
+	
+	
+GETTING DATA FROM MAPTRACK:
+	To use MapTrack data with Eye-tracker, it must be selected as a stimulus in presentation settings. 
+	Enter the participant Id, Matching with the one entered in Eye-tracking system. Press F11 to enter fullscreen mode. Press F2 to start.
+	After the experiment is finished, Press F2 again to terminate the 'interaction mode'. The results can be accessed at: http://eyetracking.upol.cz/maptrack/results/
+	Donwnload the xml file for the relevant participant ID and finished time. 
