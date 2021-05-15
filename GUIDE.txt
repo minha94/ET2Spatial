@@ -6,7 +6,7 @@ HOW TO USE:-
 For Eye-tracking Data following convention should be followed: 
 -In the Raw gaze points: ['Time of Day [h:m:s:ms]','RecordingTime [ms]','Point of Regard Right X [px]','Point of Regard Right Y [px]','Participant','Gender','Age']
 -In the Fixations gaze points following elements should exist: ['Event Start Trial Time [ms]','Event Duration [ms]','Fixation Position X [px]','Fixation Position Y [px]''Participant','Gender','Age']
--For the User Interaction file, The tool currently only works with MapTrack export (http://eyetracking.upol.cz/maptrack/) 
+-For the User Interaction file, The tool currently only works with MapTrack export (http://eyetracking.upol.cz/maptrack/results) 
 -On the initiation of the tool a terminal window also opens, The notifications for the export buttons are printed in this window.
 
 SYSTEM SETUP:-
@@ -54,4 +54,4 @@ GETTING DATA FROM MAPTRACK:
 	To use MapTrack data with Eye-tracker, it must be selected as a stimulus in presentation settings. 
 	Enter the participant Id, Matching with the one entered in Eye-tracking system. Press F11 to enter fullscreen mode. Press F2 to start.
 	After the experiment is finished, Press F2 again to terminate the 'interaction mode'. The results can be accessed at: http://eyetracking.upol.cz/maptrack/results/
-	Donwnload the xml file for the relevant participant ID and finished time. 
+	Download the xml file for the relevant participant ID and finished time. 
